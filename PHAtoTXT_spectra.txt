@@ -1,0 +1,6 @@
+# code that allows you to convert a single spectral extension to a text file to be plotted
+# sub in your observation id where applicable
+# sub in f.pha or g.pha depending on your file
+# sub in e1, e2, e3, etc depending on which extension you are converting
+
+ftlist sw00000000000ugu_1ord_1_f.pha+2 columns=lambda,flux,fluxerr rownum=no colheader=no outfile=00000000000e1spectrum.txt clobber=yes option=T

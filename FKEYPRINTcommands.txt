@@ -1,0 +1,11 @@
+# exposure and/or number of extensions
+
+fkeyprint ./00000000000/uvot/image/sw00000000000ugu_sk_img.gz exp
+
+# roll angle
+
+fkeyprint ./00000000000/uvot/image/sw00000000000ugu_sk_img.gz pa
+
+# observation date
+
+fkeyprint ./00000000000/uvot/image/sw00000000000ugu_sk_img.gz date

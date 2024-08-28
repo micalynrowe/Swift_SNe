@@ -1,0 +1,16 @@
+UVOTPY Streak Read Out (Saturated) Photometry Instructions
+	1. Download the data
+	2. Open the terminal and navigate to the folder with the downloaded data
+	3. Unzip the data by typing “gunzip */uvot/image/*.gz”
+	4. Open python by typing “python --pylab” into the terminal
+	5. Import the package with “from uvotpy import readout_streak”
+	6. Run the photometry code portion with:
+		a. name = 'SN2023ixf'
+		b. ra,dec = 210.910653712, +54.311674484
+		c. obsid = "00032481016"
+		d. indir = "./00032481016/uvot/image"
+		e. readout_streak.photometry(obsid, target=name, datadir=indir, radec=[ra,dec], outfile='SN2023ixf_streak_photometry', interactive=True, use_python_only=True)
+			i. Had to change “import ros” to “from uvotpy import ros” in “readout_streak.py” on line 334 AND you have to exit python –pylab and restart python –pylab
+			ii. Make sure you have updated GitHub version of “readout_streak.py”
+	7. The new data should automatically append to the end of the outfile you named above!
+

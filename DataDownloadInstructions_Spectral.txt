@@ -1,0 +1,41 @@
+Downloading Data From Swift Quicklook Data Website
+	1. Open https://swift.gsfc.nasa.gov/cgi-bin/sdc/ql . This website shows SN within the first few days after observation
+	2. Click on the SN you want
+	3. At the top left of the screen, choose ‘Download a tar file.’
+	4. Choose ‘auxil’ and ‘uvot’
+	5. Click ‘Download’ button
+	6. Open your terminal (and navigate into folder you would like the data to go in)
+	7. Move downloaded tar file into the folder
+	8. In terminal type “tar -xvf __file_to_untar__”
+
+
+
+Swift Archive Data Website
+	1. Open https://swift.gsfc.nasa.gov/archive/ .
+	2. Click ‘Special Swift Interface’
+	3. Type in the object name (make sure ‘Master Log’ is checked and maybe set radius to 5’)
+	4. Click ‘Start Search’ at the bottom left of the page
+	5. Sort the SN based on start time by clicking the arrow
+	6. Check the boxes (on the left) of the images you want
+	7. At the bottom of the screen, under ‘Data Products’ check ‘aux’ and ‘uvot’
+	8. Click ‘Create Download Script’ and copy wget commands onto clipboard
+	9. Open your terminal (and navigate into folder you would like the data to go in)
+	10. Make a new text file with “touch __SNName__downloadcommands.txt”
+	11. Edit file with “edit __SNName__downloadcommands.txt” and paste into text file (don’t forget to save!)
+	12. Run text file with “source __SNName__downloadcommands.txt” and let data download
+
+
+
+Getting the “Correct” Data From Swift Archive
+	1. Open Swift Archive
+	2. Next to ‘UVOT Log’ click ‘parameter search form’
+	3. Uncheck everything except for ‘target_id’, ‘obsid’, and ‘filter’
+	4. In the blank box next to ‘filter’ type in “UGRISM” for uv-grism filter or “VGRISM” for v-grism filter
+	5. At the bottom, enter SN name next to ‘Object Name or Coordinates’
+	6. Click ‘Start Search’ at the very bottom
+	7. Record the target ids for these search results
+	8. Go back to Swift Archive
+	9. Enter SN name and click ‘Start Search’
+	10. Sort SN by obsid
+	11. Check your rows with the recorded obsid’s
+	12. Download that data

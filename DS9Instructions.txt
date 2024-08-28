@@ -1,0 +1,23 @@
+Using ds9 Software
+	1. Navigate into “__targetid__/uvot/image”
+	2. Open image with “ds9 ____.img.gz”
+	3. At the top of the window, click ‘Analysis > Image Servers > SAO-DSS > Retrieve’
+	4. At the top of the window, click ‘Frame > Match > Frame > WCS’
+	5. To blink image, At the top of the image window, click ‘Frame > Blink’ (look for the dot in the .sk image that is not in the DSS image)
+	6. Click on the SN and click ‘single’
+	7. Click on the green circle (it opens up a sub-window)
+	8. Next to center, click ‘physical > WCS’
+	9. Next to radius, click ‘physical > WCS > arcsec’
+	10. Change radius to 3”
+	11. Click ‘region > save’ and save as “__SNName__ _ 3.reg”
+	12. Click ‘ok’ (this opens another subwindow)
+	13. Next to ‘Coordinate System’, click ‘physical > WCS’
+	14. Click ‘ok’
+	15. Make a background region file (steps 6-14) and name it “__SNName__ _ bkg.reg” (make sure the region is a similar distance away from the galaxy)
+	16. Make a clear region file (steps 6-14) and name it “__SNName__ _ bkgclear.reg” (make sure the region has no galaxy contamination)
+	17. Go to the terminal and navigate into the “__targetid__/uvot/image” folder
+	18. Type in “uvotimsum __image__.gz     __newnameforimage__.img” (makes a single image of 3 exposures) and then “__newnameforimage__.img”
+	19. Type in “plist uvotsource” and then “uvotsource __image__.gz __SNName__ _ 3.reg “__SNName__ _ bkg.reg 3”
+	20. To see only one image, at the bottom of the window, click ‘frame > single’
+	21. To get more information, in the terminal type “fkeyprint __image__ exposure” OR “fkeyprint __image__ date-obs” (each extension is a separate image)
+

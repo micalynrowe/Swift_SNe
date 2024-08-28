@@ -1,0 +1,4 @@
+# code that allows you to convert summed spectral extensions to a text file to be plotted
+# sub in your observation id where applicable
+
+ftlist sum_00000000000.fits columns=wave,flux,fluxerr rownum=no colheader=no outfile=00000000000sumspectrum.txt clobber=yes option=T

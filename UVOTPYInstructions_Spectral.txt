@@ -1,0 +1,50 @@
+Processing the Data With UVOTPY
+	1. Get data downloaded
+	2. Open your terminal (and navigate into folder where you put the data)
+	3. Initiate ipython with “ipython --pylab”
+	4. Get coordinates for SN by typing “tns __SNName__” into google
+	5. Copy the RA/Dec to your clipboard
+	6. In ipython type: and then hit enter
+		a. from uvotpy import uvotgetspec
+		b. ra,dec = ___ , ___ (paste stuff from clipboard and add a comma)
+		c. obsid = “_first11digits_”
+		d. ext = 1
+		e. datadir = “_targetid_/uvot/image”
+		f. uvotgetspec.getSpec(ra,dec,obsid,ext,indir=datadir,fit_second=True,chatter=1)
+	7. You will get 3 figures of spectra spit out
+	8. Then in ipython type: and then hit enter
+		a. phafiles = ['sw_targetid_ugu_1ord_1_g.pha', 'sw_targetid_ugu_1ord_2_g.pha',…_all the pha files for that target id_]
+		b. uvotspec.sum_PHAspectra(phafiles,outfile='sum__targetid_.fits',wave_shifts=[0,0],objectname='_SNName_',chatter=5,ignore_flags=True)
+	9. Exit out of ipython by typing “exit”
+	10. Convert one extensions’ PHA file to something we can plot by typing this into the terminal and then hitting enter
+		a. ftlist sw_targetid_ugu_1ord_1_g.pha+2 columns=lambda,flux,fluxerr rownum=no colheader=no outfile=_targetid_e1spectrum.txt clobber=yes option=T
+	11. Convert summed fits spectra to something we can plot by typing this into the terminal and then hitting enter
+		a. ftlist sum__targetid_.fits columns=wave,flux,fluxerr rownum=no colheader=no outfile=_targetid_sumspectrum.txt clobber=yes option=T
+	12. Then you can plot in Jupyter Notebook
+
+
+
+Definitions
+Sequence | Vers | Object | Observed | Processed | Comment
+Sequence – first 8 digits are the ‘target id’ (a specific coordinate is associated with it) and adding the last 3 digits is the ‘obs id’ (these are sequentially added)
+Vers – first time it appears on Quicklook site (like new data)
+Object – comes from observing plan sent to archive
+
+Log.uir | Exp ID | ICU.label | Mode | Submode | Filter | Event Window
+Exp ID – based on time started
+ICU.label – what was used
+
+ImageWindow | Binning | Duration | Count Rate | Image Dataloss | Good Attitude Fraction | Completion
+
+Aux = auxillary files from spacecraft
+Bat = burst alert telescope
+Log = various observing logs (gives you the uir{uvot instrument report})
+Uvot = data from uvot
+Xrt = xray telescope
+
+.ex = exposure map coordinates
+.rw = raw exposure CCD coordinates
+.sk = sky image (what we use), instrument pointing information, uses stars to improve astrometric calibration
+
+AT = Astrophysical Transient
+ANON = template observation
